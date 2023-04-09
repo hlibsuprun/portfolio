@@ -1,0 +1,35 @@
+/* COLOR PALETTE */
+$dark-navy: rgb(2, 12, 27);
+$navy: rgb(10, 25, 47);
+$light-navy: rgb(17, 34, 64);
+$lightest-navy: rgb(35, 53, 84);
+$navy-shadow: rgba(2, 12, 27, 0.7);
+$dark-slate: rgb(73, 86, 112);
+$slate: rgb(136, 146, 176);
+$light-slate: rgb(168, 178, 209);
+$lightest-slate: rgb(204, 214, 246);
+$white: rgb(230, 241, 255);
+$green: rgb(100, 255, 218);
+$green-tint: rgba(100, 255, 218, 0.1);
+$pink: rgb(245, 125, 255);
+$blue: rgb(87, 203, 255);
+
+/* FONT */
+$font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
+$font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+
+$fz-xxs: 12px;
+$fz-xs: 13px;
+$fz-sm: 14px;
+$fz-md: 16px;
+$fz-lg: 18px;
+$fz-xl: 20px;
+$fz-xxl: 22px;
+$fz-heading: 32px;
+
+/* TRANSITION */
+$easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+$transition: all 0.25s $easing;
+
+/* OTHER */
+$border-radius: 4px;

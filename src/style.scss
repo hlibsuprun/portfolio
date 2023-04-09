@@ -1,0 +1,8 @@
+@import '@/assets/styles/global.scss';
+@import '@/assets/styles/variables.scss';
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $navy;
+}

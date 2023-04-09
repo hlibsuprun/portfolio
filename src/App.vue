@@ -1,30 +1,46 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref, watch } from 'vue'
+
+import NavBar from './components/NavBar.vue'
+import WelcomeSpinner from './components/WelcomeSpinner.vue'
+
+let welcome = ref(true)
+setTimeout(() => {
+  welcome.value = !welcome.value
+}, 2700)
+
+let isOpenMobileMenu = ref(false)
+
+watch(isOpenMobileMenu, (isOpen) => {
+  document.body.style.overflow = isOpen ? 'hidden' : 'auto'
+})
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <WelcomeSpinner v-if="welcome" />
+  <div v-else>
+    <NavBar
+      :is-open-mobile-menu="isOpenMobileMenu"
+      @update-is-open-mobile-menu="isOpenMobileMenu = $event"
+    />
+    <main
+      :class="`main ${isOpenMobileMenu ? 'blur' : ''}`"
+      @click="() => isOpenMobileMenu && (isOpenMobileMenu = !isOpenMobileMenu)"
+    >
+      <div>hello</div>
+    </main>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+<style lang="scss" scoped>
+@import '@/assets/styles/variables.scss';
+.main {
+  min-height: 100vh;
+  &.blur > * {
+    filter: blur(5px) brightness(0.7);
+    transition: $transition;
+    pointer-events: none;
+    user-select: none;
+  }
 }
 </style>
