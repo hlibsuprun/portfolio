@@ -25,3 +25,35 @@ a:focus-visible {
   outline: 2px dashed $green;
   outline-offset: 3px;
 }
+
+.fadedown-enter-done {
+  transition: $transition;
+  opacity: 0;
+  animation: fadedown-enter-down 0.75s $easing forwards;
+}
+
+.fade-enter-done {
+  transition: $transition;
+  opacity: 0;
+  animation: fade-enter-down 0.75s $easing forwards;
+}
+
+@keyframes fadedown-enter-down {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-enter-down {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

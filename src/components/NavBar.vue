@@ -43,27 +43,27 @@ window.addEventListener('scroll', () => {
     }"
   >
     <nav class="nav">
-      <a href="/" class="nav__home home">
+      <a href="/" class="nav__home home fade-enter-done">
         <div class="home__hex">
           <BaseIcon height="inherit" width="inherit" icon-name="hex"/>
         </div>
-        <div class="home__logo">
+        <div class="home__logo ">
           <BaseIcon height="inherit" width="inherit" icon-name="logo"/>
         </div>
       </a>
       <div :class="`nav__menu  ${props.isOpenMobileMenu ? 'nav__menu_active' : ''}`">
         <ul class="nav__list">
-          <li class="nav__item" @click="closeMobileMenu">
+          <li class="nav__item fadedown-enter-done" style="animation-delay: 0s;" @click="closeMobileMenu">
             <a href="#about" class="nav__link">About</a>
           </li>
-          <li class="nav__item" @click="closeMobileMenu">
+          <li class="nav__item fadedown-enter-done" style="animation-delay: 100ms;" @click="closeMobileMenu">
             <a href="#projects" class="nav__link">Projects</a>
           </li>
-          <li class="nav__item" @click="closeMobileMenu">
+          <li class="nav__item fadedown-enter-done" style="animation-delay: 200ms;" @click="closeMobileMenu">
             <a href="#contact" class="nav__link">Contact</a>
           </li>
         </ul>
-        <div class="fade-in-and-slide-down">
+        <div class="fadedown-enter-done" style="animation-delay: 300ms;">
           <a type="button" href="/resume.pdf" target="_blank" class="nav__button">Resume</a>
         </div>
       </div>
@@ -81,13 +81,6 @@ window.addEventListener('scroll', () => {
 
 <style lang="scss" scoped>
 @import '@/assets/styles/variables.scss';
-
-.fade-in-and-slide-down {
-  transition: $transition;
-  opacity: 0;
-  animation-delay: 300ms;
-  animation: fade-in-and-slide-down 0.75s $easing forwards;
-}
 
 .header {
   z-index: 11;
@@ -131,7 +124,6 @@ window.addEventListener('scroll', () => {
     height: 45px;
     transition: $transition;
     opacity: 0;
-    animation: fade-in 1s forwards;
 
     &:hover {
       outline: 0px;
@@ -159,23 +151,10 @@ window.addEventListener('scroll', () => {
     counter-increment: item 1;
     opacity: 0;
     transform: translateY(-100%);
-    animation: fade-in-and-slide-down 0.75s $easing forwards;
 
     &:focus-visible {
       outline: 2px dashed $green;
       outline-offset: 3px;
-    }
-
-    &:nth-child(1) {
-      animation-delay: 0s;
-    }
-
-    &:nth-child(2) {
-      animation-delay: 100ms;
-    }
-
-    &:nth-child(3) {
-      animation-delay: 200ms;
     }
   }
 
@@ -410,26 +389,6 @@ window.addEventListener('scroll', () => {
         transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
       }
     }
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-in-and-slide-down {
-  from {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
 </style>

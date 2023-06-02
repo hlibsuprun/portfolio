@@ -3,7 +3,7 @@ import BaseIcon from "@/components/Base/BaseIcon.vue";
 </script>
 
 <template>
-  <div class="social">
+  <div class="social fade-enter-done" style="">
     <div class="social__list">
       <li class="social__item">
         <a href="https://github.com/hlibsuprun" class="social__link" target="_blank">
@@ -41,7 +41,6 @@ import BaseIcon from "@/components/Base/BaseIcon.vue";
   line-height: 1.3;
   list-style: none;
   opacity: 0;
-  animation: fade-in 400ms forwards 5s;
 
   &::after {
     content: "";
@@ -91,15 +90,6 @@ import BaseIcon from "@/components/Base/BaseIcon.vue";
 @media (max-width: 1080px) {
   .social {
     left: 20px;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 </style>

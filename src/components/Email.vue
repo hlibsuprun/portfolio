@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="email">
+  <div class="email fade-enter-done" style="">
     <a
         href="mailto:hlibsuprun@gmail.com"
         class="email__link">
@@ -30,9 +30,7 @@
   color: $light-slate;
   line-height: $fz-lg;
   letter-spacing: 0.1em;
-  list-style: none;
   opacity: 0;
-  animation: fade-in 400ms forwards 5s;
 
   &::after {
     content: "";
@@ -47,7 +45,6 @@
     display: inline-block;
     margin: 20px 0;
     padding: 10px;
-    text-decoration: none;
     color: inherit;
     transition: $transition;
     writing-mode: vertical-lr;
@@ -74,15 +71,6 @@
 @media (max-width: 1080px) {
   .email {
     right: 20px;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 </style>
