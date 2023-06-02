@@ -68,7 +68,7 @@ window.addEventListener('scroll', () => {
         </div>
       </div>
       <button
-          :class="`nav__ham-button ${props.isOpenMobileMenu ? 'nav__ham-button_active' : ''}`"
+          :class="`nav__ham-button fade-enter-done ${props.isOpenMobileMenu ? 'nav__ham-button_active' : ''}`"
           @click="toggleMobileMenu"
       >
         <div class="nav__ham-box">
@@ -311,7 +311,6 @@ window.addEventListener('scroll', () => {
       transition-duration: 0.15s;
       transition-property: opacity, filter;
       opacity: 0;
-      animation: fade-in 1s forwards;
 
       &:focus-visible {
         outline: 2px dashed $green;

@@ -21,24 +21,71 @@
   color: $lightest-slate;
 }
 
+body {
+  color: $slate;
+  font-family: $font-sans;
+  font-size: $fz-xl;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: $fz-lg;
+  }
+}
+
 a:focus-visible {
   outline: 2px dashed $green;
   outline-offset: 3px;
 }
 
-.fadedown-enter-done {
-  transition: $transition;
-  opacity: 0;
-  animation: fadedown-enter-down 0.75s $easing forwards;
+section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 100px 0px;
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 60px 0px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  section {
+    padding: 80px 0px;
+  }
 }
 
 .fade-enter-done {
   transition: $transition;
   opacity: 0;
-  animation: fade-enter-down 0.75s $easing forwards;
+  animation: fade-enter-done 0.75s $easing forwards;
 }
 
-@keyframes fadedown-enter-down {
+.fadedown-enter-done {
+  transition: $transition;
+  opacity: 0;
+  animation: fadedown-enter-done 0.75s $easing forwards;
+}
+
+.fadeup-enter-done {
+  transition: $transition;
+  opacity: 0;
+  animation: fadeup-enter-done 0.75s $easing forwards;
+}
+
+
+@keyframes fade-enter-done {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadedown-enter-done {
   from {
     opacity: 0;
     transform: translateY(-100%);
@@ -49,11 +96,13 @@ a:focus-visible {
   }
 }
 
-@keyframes fade-enter-down {
-  0% {
+@keyframes fadeup-enter-done {
+  from {
     opacity: 0;
+    transform: translateY(100%);
   }
-  100% {
+  to {
     opacity: 1;
+    transform: translateY(0);
   }
 }

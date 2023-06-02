@@ -3,8 +3,9 @@ import {ref, watch} from 'vue'
 
 import NavBar from './components/NavBar.vue'
 import WelcomeSpinner from './components/WelcomeSpinner.vue'
-import SocialMedia from "@/components/SocialMedia.vue";
-import Email from "@/components/Email.vue";
+import SocialMedia from "@/components/SideSocial.vue";
+import Email from "@/components/SideEmail.vue";
+import SectionHero from "@/components/SectionHero.vue";
 
 let welcome = ref(true)
 setTimeout(() => {
@@ -31,6 +32,7 @@ watch(isOpenMobileMenu, (isOpen) => {
         :class="`main ${isOpenMobileMenu ? 'blur' : ''}`"
         @click="() => isOpenMobileMenu && (isOpenMobileMenu = !isOpenMobileMenu)"
     >
+      <SectionHero/>
     </main>
   </div>
 </template>
@@ -40,6 +42,7 @@ watch(isOpenMobileMenu, (isOpen) => {
 
 .main {
   min-height: 100vh;
+  padding: 0px 150px;
 
   &.blur > * {
     filter: blur(5px) brightness(0.7);
@@ -48,4 +51,24 @@ watch(isOpenMobileMenu, (isOpen) => {
     user-select: none;
   }
 }
+
+@media (max-width: 1080px) {
+  .main {
+    padding: 0px 100px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .main {
+    padding: 0px 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 0px 25px;
+  }
+}
+
 </style>
