@@ -1,7 +1,7 @@
 <script setup>
-import { ref } from 'vue'
+import {ref} from 'vue'
 
-import Logo from './Icons/Logo.vue'
+import BaseIcon from "@/components/Base/BaseIcon.vue";
 
 const props = defineProps({
   isOpenMobileMenu: {
@@ -36,14 +36,21 @@ window.addEventListener('scroll', () => {
 
 <template>
   <header
-    :class="{
+      :class="{
       header: true,
       header__scroll: headerHidden && !starScrollPosition,
       header__scroll_hidden: !headerHidden && !starScrollPosition,
     }"
   >
     <nav class="nav">
-      <a href="/" class="nav__logo"><Logo /></a>
+      <a href="/" class="nav__home home">
+        <div class="home__hex">
+          <BaseIcon height="inherit" width="inherit" icon-name="hex"/>
+        </div>
+        <div class="home__logo">
+          <BaseIcon height="inherit" width="inherit" icon-name="logo"/>
+        </div>
+      </a>
       <div :class="`nav__menu  ${props.isOpenMobileMenu ? 'nav__menu_active' : ''}`">
         <ul class="nav__list">
           <li class="nav__item" @click="closeMobileMenu">
@@ -56,13 +63,17 @@ window.addEventListener('scroll', () => {
             <a href="#contact" class="nav__link">Contact</a>
           </li>
         </ul>
-        <a type="button" href="/resume.pdf" target="_blank" class="nav__button">Resume</a>
+        <div class="fade-in-and-slide-down">
+          <a type="button" href="/resume.pdf" target="_blank" class="nav__button">Resume</a>
+        </div>
       </div>
       <button
-        :class="`nav__ham-button ${props.isOpenMobileMenu ? 'nav__ham-button_active' : ''}`"
-        @click="toggleMobileMenu"
+          :class="`nav__ham-button ${props.isOpenMobileMenu ? 'nav__ham-button_active' : ''}`"
+          @click="toggleMobileMenu"
       >
-        <div class="nav__ham-box"><div class="nav__ham-inner"></div></div>
+        <div class="nav__ham-box">
+          <div class="nav__ham-inner"></div>
+        </div>
       </button>
     </nav>
   </header>
@@ -70,6 +81,13 @@ window.addEventListener('scroll', () => {
 
 <style lang="scss" scoped>
 @import '@/assets/styles/variables.scss';
+
+.fade-in-and-slide-down {
+  transition: $transition;
+  opacity: 0;
+  animation-delay: 300ms;
+  animation: fade-in-and-slide-down 0.75s $easing forwards;
+}
 
 .header {
   z-index: 11;
@@ -93,6 +111,7 @@ window.addEventListener('scroll', () => {
   transform: translateY(0px);
   background-color: rgba(10, 25, 47, 0.85);
   box-shadow: 0 10px 30px -10px $navy-shadow;
+
   &_hidden {
     transform: translate(0px, -100px);
   }
@@ -107,27 +126,20 @@ window.addEventListener('scroll', () => {
   color: $lightest-slate;
   font-family: $font-mono;
 
-  &__logo {
-    z-index: 12;
-    width: 42px;
-    height: 42px;
+  &__home {
+    width: 39px;
+    height: 45px;
     transition: $transition;
     opacity: 0;
     animation: fade-in 1s forwards;
 
-    svg {
-      width: inherit;
-      height: inherit;
+    &:hover {
+      outline: 0px;
+      transform: translate(-4px, -4px);
     }
 
-    &:hover svg,
-    &:focus svg {
-      fill: $green-tint;
-    }
-
-    &:focus-visible {
-      outline: 2px dashed $green;
-      outline-offset: 3px;
+    &:hover > .home__hex {
+      transform: translate(4px, 3px);
     }
   }
 
@@ -187,44 +199,45 @@ window.addEventListener('scroll', () => {
     &:focus {
       color: $green;
     }
-
-    &:focus-visible {
-      outline: 2px dashed $green;
-      outline-offset: 3px;
-    }
   }
 
   &__button {
+    position: relative;
     margin-left: 15px;
     padding: 0.75rem 1rem;
     border: 1px solid $green;
     border-radius: $border-radius;
-    text-decoration: none;
     font-family: $font-mono;
     font-size: $fz-xs;
     line-height: 1;
     color: $green;
     background-color: transparent;
     transition: $transition;
-    opacity: 0;
-    transform: translateY(-100%);
-    animation-delay: 300ms;
-    animation: fade-in-and-slide-down 0.75s $easing forwards;
-    cursor: pointer;
 
     &:hover,
     &:active {
-      background-color: $green-tint;
       outline: none;
-    }
-    &:focus-visible {
-      outline: 2px dashed $green;
-      outline-offset: 3px;
+      box-shadow: 3px 3px 0 0 $green;
+      transform: translate(-4px, -4px);
     }
   }
 
   &__ham-button {
     display: none;
+  }
+}
+
+.home {
+  &__hex {
+    z-index: -1;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    transition: $transition;
+  }
+
+  &__logo {
+    position: relative;
   }
 }
 
@@ -234,6 +247,7 @@ window.addEventListener('scroll', () => {
     width: calc(100% - 80px);
   }
 }
+
 @media (max-width: 768px) {
   .header {
     padding: 0px 25px;
@@ -259,6 +273,7 @@ window.addEventListener('scroll', () => {
       transform: translateX(100vw);
       visibility: hidden;
       transition: $transition;
+
       &_active {
         transform: translateX(0vw);
         visibility: visible;
@@ -285,6 +300,7 @@ window.addEventListener('scroll', () => {
       font-size: clamp($fz-sm, 4vw, $fz-lg);
       color: inherit;
       transition: $transition;
+
       &::before {
         display: block;
         width: 100%;
@@ -317,6 +333,7 @@ window.addEventListener('scroll', () => {
       transition-property: opacity, filter;
       opacity: 0;
       animation: fade-in 1s forwards;
+
       &:focus-visible {
         outline: 2px dashed $green;
         outline-offset: 3px;
@@ -327,21 +344,24 @@ window.addEventListener('scroll', () => {
           transition: transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
           transform: rotate(225deg);
         }
+
         .nav__ham-inner::before {
           width: 100%;
           top: 0px;
           opacity: 0;
           transition: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
         }
+
         .nav__ham-inner::after {
           width: 100%;
           bottom: 0px;
           transform: rotate(-90deg);
           transition: bottom 0.1s ease-out,
-            transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+          transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
         }
       }
     }
+
     &__ham-box {
       position: absolute;
       top: 0;
@@ -350,6 +370,7 @@ window.addEventListener('scroll', () => {
       width: inherit;
       height: inherit;
     }
+
     &__ham-inner {
       position: absolute;
       top: 50%;
@@ -386,7 +407,7 @@ window.addEventListener('scroll', () => {
         bottom: -10px;
         transform: rotate(0deg);
         transition: bottom 0.1s ease-in 0.25s,
-          transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
       }
     }
   }
@@ -400,6 +421,7 @@ window.addEventListener('scroll', () => {
     opacity: 1;
   }
 }
+
 @keyframes fade-in-and-slide-down {
   from {
     opacity: 0;

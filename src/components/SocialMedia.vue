@@ -1,6 +1,5 @@
 <script setup>
-import Github from "@/components/Icons/Github.vue";
-import LinkedIn from "@/components/Icons/LinkedIn.vue";
+import BaseIcon from "@/components/Base/BaseIcon.vue";
 </script>
 
 <template>
@@ -8,14 +7,14 @@ import LinkedIn from "@/components/Icons/LinkedIn.vue";
     <div class="social__list">
       <li class="social__item">
         <a href="https://github.com/hlibsuprun" class="social__link" target="_blank">
-          <Github/>
+          <BaseIcon height="20" width="20" icon-name="github"/>
         </a>
       </li>
       <li class="social__item">
         <a
             href="https://www.linkedin.com/in/hlibsuprun/"
             class="social__link" target="_blank">
-          <LinkedIn/>
+          <BaseIcon height="20" width="20" icon-name="linkedin"/>
         </a>
       </li>
     </div>
@@ -71,12 +70,6 @@ import LinkedIn from "@/components/Icons/LinkedIn.vue";
     text-decoration: none;
     color: inherit;
     transition: $transition;
-
-    svg {
-      width: 20px;
-      height: 20px;
-      fill: none;
-    }
 
     &:hover, &:focus {
       color: $green;
