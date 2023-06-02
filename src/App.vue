@@ -1,8 +1,10 @@
 <script setup>
-import { ref, watch } from 'vue'
+import {ref, watch} from 'vue'
 
 import NavBar from './components/NavBar.vue'
 import WelcomeSpinner from './components/WelcomeSpinner.vue'
+import SocialMedia from "@/components/SocialMedia.vue";
+import Email from "@/components/Email.vue";
 
 let welcome = ref(true)
 setTimeout(() => {
@@ -17,25 +19,28 @@ watch(isOpenMobileMenu, (isOpen) => {
 </script>
 
 <template>
-  <WelcomeSpinner v-if="welcome" />
+  <WelcomeSpinner v-if="welcome"/>
   <div v-else>
     <NavBar
-      :is-open-mobile-menu="isOpenMobileMenu"
-      @update-is-open-mobile-menu="isOpenMobileMenu = $event"
+        :is-open-mobile-menu="isOpenMobileMenu"
+        @update-is-open-mobile-menu="isOpenMobileMenu = $event"
     />
+    <SocialMedia/>
+    <Email/>
     <main
-      :class="`main ${isOpenMobileMenu ? 'blur' : ''}`"
-      @click="() => isOpenMobileMenu && (isOpenMobileMenu = !isOpenMobileMenu)"
+        :class="`main ${isOpenMobileMenu ? 'blur' : ''}`"
+        @click="() => isOpenMobileMenu && (isOpenMobileMenu = !isOpenMobileMenu)"
     >
-      <div>hello</div>
     </main>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import '@/assets/styles/variables.scss';
+
 .main {
   min-height: 100vh;
+
   &.blur > * {
     filter: blur(5px) brightness(0.7);
     transition: $transition;
