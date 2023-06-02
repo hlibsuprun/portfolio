@@ -59,10 +59,10 @@ window.addEventListener('scroll', () => {
         <a type="button" href="/resume.pdf" target="_blank" class="nav__button">Resume</a>
       </div>
       <button
-        :class="`nav__hum-button ${props.isOpenMobileMenu ? 'nav__hum-button_active' : ''}`"
+        :class="`nav__ham-button ${props.isOpenMobileMenu ? 'nav__ham-button_active' : ''}`"
         @click="toggleMobileMenu"
       >
-        <div class="nav__hum-box"><div class="nav__hum-inner"></div></div>
+        <div class="nav__ham-box"><div class="nav__ham-inner"></div></div>
       </button>
     </nav>
   </header>
@@ -223,7 +223,7 @@ window.addEventListener('scroll', () => {
     }
   }
 
-  &__hum-button {
+  &__ham-button {
     display: none;
   }
 }
@@ -301,7 +301,7 @@ window.addEventListener('scroll', () => {
       font-size: $fz-sm;
     }
 
-    &__hum-button {
+    &__ham-button {
       z-index: 12;
       position: relative;
       display: inline-block;
@@ -323,17 +323,17 @@ window.addEventListener('scroll', () => {
       }
 
       &_active {
-        .nav__hum-inner {
+        .nav__ham-inner {
           transition: transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
           transform: rotate(225deg);
         }
-        .nav__hum-inner::before {
+        .nav__ham-inner::before {
           width: 100%;
           top: 0px;
           opacity: 0;
           transition: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
         }
-        .nav__hum-inner::after {
+        .nav__ham-inner::after {
           width: 100%;
           bottom: 0px;
           transform: rotate(-90deg);
@@ -342,7 +342,7 @@ window.addEventListener('scroll', () => {
         }
       }
     }
-    &__hum-box {
+    &__ham-box {
       position: absolute;
       top: 0;
       left: 0;
@@ -350,7 +350,7 @@ window.addEventListener('scroll', () => {
       width: inherit;
       height: inherit;
     }
-    &__hum-inner {
+    &__ham-inner {
       position: absolute;
       top: 50%;
       right: 0px;
