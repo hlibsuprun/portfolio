@@ -51,7 +51,7 @@ const props = defineProps({
   </div>
   <div class="project-image">
     <a :href="props.deploy" target="_blank">
-      <img :src="props.image[0]" :alt="props.image[1]">
+      <img :src="`src/assets/images/${props.image}.png`" :alt="props.image">
     </a>
   </div>
 </template>

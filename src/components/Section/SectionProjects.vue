@@ -14,7 +14,7 @@ import BaseProjectCard from "@/components/Base/BaseProjectCard.vue";
             :tech-list="['TypeScript', 'React', 'Styled Components', 'Vite']"
             github="https://github.com/hlibsuprun/etq-amsterdam"
             deploy="https://etq-amsterdam-hlibsuprun.vercel.app/"
-            :image="['../../assets/images/etq-amsterdam.png', 'etq-amsterdam']"
+            image="etq-amsterdam"
         />
       </li>
     </ul>
