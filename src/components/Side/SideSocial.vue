@@ -22,7 +22,7 @@ import BaseIcon from "@/components/Base/BaseIcon.vue";
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/variables.scss';
+@import '@/assets/styles/variables';
 
 .social {
   position: fixed;

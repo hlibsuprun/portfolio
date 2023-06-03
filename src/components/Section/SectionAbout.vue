@@ -53,7 +53,7 @@
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/styles/variables.scss';
+@import '@/assets/styles/variables';
 
 .about {
   max-width: 900px;

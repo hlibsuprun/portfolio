@@ -1,13 +1,13 @@
 <script setup>
 import {ref, watch} from 'vue'
 
-import NavBar from './components/NavBar.vue'
-import WelcomeSpinner from './components/WelcomeSpinner.vue'
-import SocialMedia from "@/components/SideSocial.vue";
-import Email from "@/components/SideEmail.vue";
-import SectionHero from "@/components/SectionHero.vue";
-import SectionAbout from "@/components/SectionAbout.vue";
-import SectionProjects from "@/components/SectionProjects.vue";
+import NavBar from '@/components/NavBar.vue'
+import WelcomeSpinner from '@/components/WelcomeSpinner.vue'
+import SocialMedia from "@/components/Side/SideSocial.vue";
+import Email from "@/components/Side/SideEmail.vue";
+import SectionHero from "@/components/Section/SectionHero.vue";
+import SectionAbout from "@/components/Section/SectionAbout.vue";
+import SectionProjects from "@/components/Section/SectionProjects.vue";
 
 let welcome = ref(true)
 setTimeout(() => {
