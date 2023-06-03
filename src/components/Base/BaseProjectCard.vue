@@ -222,6 +222,10 @@ const props = defineProps({
       background-color: transparent;
       box-shadow: none;
     }
+
+    &__tech-list {
+      margin: 10px 0px;
+    }
   }
 
   .project-image {
