@@ -1,5 +1,6 @@
 <script setup>
 import BaseIcon from "@/components/Base/BaseIcon.vue";
+import {computed} from "vue";
 
 const props = defineProps({
   title: {
@@ -23,7 +24,7 @@ const props = defineProps({
     required: true
   },
   image: {
-    type: Array,
+    type: String,
     required: true
   }
 })
@@ -51,7 +52,7 @@ const props = defineProps({
   </div>
   <div class="project-image">
     <a :href="props.deploy" target="_blank">
-      <img :src="`src/assets/images/${props.image}.png`" :alt="props.image">
+      <img src="../../assets/images/etq-amsterdam.png" :alt="props.image">
     </a>
   </div>
 </template>
