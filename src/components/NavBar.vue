@@ -64,7 +64,7 @@ window.addEventListener('scroll', () => {
           </li>
         </ul>
         <div class="fadedown-enter-done" style="animation-delay: 300ms;">
-          <a type="button" href="/resume.pdf" target="_blank" class="nav__button">Resume</a>
+          <a type="button" href="/cv-hlib-suprun-frontend-developer.pdf" target="_blank" class="nav__button" @click="closeMobileMenu">Resume</a>
         </div>
       </div>
       <button

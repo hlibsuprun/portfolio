@@ -7,6 +7,7 @@ import SocialMedia from "@/components/SideSocial.vue";
 import Email from "@/components/SideEmail.vue";
 import SectionHero from "@/components/SectionHero.vue";
 import SectionAbout from "@/components/SectionAbout.vue";
+import SectionProjects from "@/components/SectionProjects.vue";
 
 let welcome = ref(true)
 setTimeout(() => {
@@ -35,6 +36,7 @@ watch(isOpenMobileMenu, (isOpen) => {
     >
       <SectionHero/>
       <SectionAbout v-scrollanimation/>
+      <SectionProjects v-scrollanimation/>
     </main>
   </div>
 </template>

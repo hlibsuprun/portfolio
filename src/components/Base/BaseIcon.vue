@@ -31,7 +31,14 @@ const props = defineProps({
     <rect x="2" y="9" width="4" height="12"></rect>
     <circle cx="4" cy="4" r="2"></circle>
   </svg>
-  <svg v-if="props.iconName === 'logo'" viewBox="0 0 42 48" :width="props.width" :height="props.height" fill="rgb(10, 25, 47)">
+  <svg v-if="props.iconName === 'external-link'" viewBox="0 0 24 24" :width="props.width" :height="props.height" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+    <polyline points="15 3 21 3 21 9"></polyline>
+    <line x1="10" y1="14" x2="21" y2="3"></line>
+  </svg>
+  <svg v-if="props.iconName === 'logo'" viewBox="0 0 42 48" :width="props.width" :height="props.height"
+       fill="rgb(10, 25, 47)">
     <path
         d="M1 13.2828L20.9986 1.16913L41 13.2829V34.7171L20.9986 46.8309L1 34.7172L1 13.2828Z"
         stroke="#64FFDA"
