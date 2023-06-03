@@ -6,6 +6,7 @@ import WelcomeSpinner from './components/WelcomeSpinner.vue'
 import SocialMedia from "@/components/SideSocial.vue";
 import Email from "@/components/SideEmail.vue";
 import SectionHero from "@/components/SectionHero.vue";
+import SectionAbout from "@/components/SectionAbout.vue";
 
 let welcome = ref(true)
 setTimeout(() => {
@@ -33,6 +34,7 @@ watch(isOpenMobileMenu, (isOpen) => {
         @click="() => isOpenMobileMenu && (isOpenMobileMenu = !isOpenMobileMenu)"
     >
       <SectionHero/>
+      <SectionAbout v-scrollanimation/>
     </main>
   </div>
 </template>
@@ -40,15 +42,31 @@ watch(isOpenMobileMenu, (isOpen) => {
 <style lang="scss" scoped>
 @import '@/assets/styles/variables.scss';
 
+.before-enter {
+  opacity: 0;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 20, 0, 1);
+}
+
+.enter {
+  visibility: visible;
+  opacity: 1;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transition: opacity 0.5s $easing 0.2s, transform 0.5s $easing 0.2s;
+}
+
 .main {
   min-height: 100vh;
+  max-height: 100%;
   padding: 0px 150px;
 
-  &.blur > * {
+  &.blur, &.blur > * {
     filter: blur(5px) brightness(0.7);
     transition: $transition;
-    pointer-events: none;
     user-select: none;
+  }
+
+  &.blur > * {
+    pointer-events: none;
   }
 }
 
@@ -57,7 +75,6 @@ watch(isOpenMobileMenu, (isOpen) => {
     padding: 0px 100px;
   }
 }
-
 
 @media (max-width: 768px) {
   .main {
@@ -70,5 +87,4 @@ watch(isOpenMobileMenu, (isOpen) => {
     padding: 0px 25px;
   }
 }
-
 </style>

@@ -57,7 +57,7 @@ window.addEventListener('scroll', () => {
             <a href="#about" class="nav__link">About</a>
           </li>
           <li class="nav__item fadedown-enter-done" style="animation-delay: 100ms;" @click="closeMobileMenu">
-            <a href="#projects" class="nav__link">Projects</a>
+            <a href="#projects" class="nav__link">Work</a>
           </li>
           <li class="nav__item fadedown-enter-done" style="animation-delay: 200ms;" @click="closeMobileMenu">
             <a href="#contact" class="nav__link">Contact</a>

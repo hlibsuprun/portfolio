@@ -6,20 +6,19 @@
     <div class="fadeup-enter-done" style="transition-delay: 100ms;">
       <h1 class="hero__title">Hi, my name is</h1>
     </div>
-    <div class="fadeup-enter-done" style="transition-delay: 200ms;">
+    <div class="fadeup-enter-done" style="transition-delay: 275ms;">
       <h2 class="hero__subtitle">Hlib Suprun.</h2>
     </div>
-    <div class="fadeup-enter-done" style="transition-delay: 300ms;">
+    <div class="fadeup-enter-done" style="transition-delay: 450ms;">
       <h3 class="hero__subtitle">I develop web applications.</h3>
     </div>
-    <div class="fadeup-enter-done" style="transition-delay: 400ms;">
+    <div class="fadeup-enter-done" style="transition-delay: 625ms;">
       <p class="hero__paragraph">
-        As a student, I possess a strong desire to develop my coding skills and advance my career in the field. I am
-        committed to constantly improving my abilities and knowledge, as I strive to become a proficient programmer.
-        My passion for programming fuels my determination to succeed in the industry.
+        I am a student whose path in programming has been since childhood, so I strive to become more experienced in
+        this industry and I am confident that my passion will help me achieve success in the field.
       </p>
     </div>
-    <div class="fadeup-enter-done" style="transition-delay: 500ms;">
+    <div class="fadeup-enter-done" style="transition-delay: 800ms;">
       <a href="#about" class="hero__button">
         Learn more about me
       </a>

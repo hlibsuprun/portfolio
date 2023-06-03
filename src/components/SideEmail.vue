@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="email fade-enter-done" style="animation-delay: 600ms">
+  <div class="email fade-enter-done" style="animation-delay: 975ms">
     <a
         href="mailto:hlibsuprun@gmail.com"
         class="email__link">

@@ -3,7 +3,7 @@ import BaseIcon from "@/components/Base/BaseIcon.vue";
 </script>
 
 <template>
-  <div class="social fade-enter-done" style="animation-delay: 600ms">
+  <div class="social fade-enter-done" style="animation-delay: 975ms">
     <div class="social__list">
       <li class="social__item">
         <a href="https://github.com/hlibsuprun" class="social__link" target="_blank">
