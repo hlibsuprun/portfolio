@@ -8,6 +8,7 @@ import Email from "@/components/Side/SideEmail.vue";
 import SectionHero from "@/components/Section/SectionHero.vue";
 import SectionAbout from "@/components/Section/SectionAbout.vue";
 import SectionProjects from "@/components/Section/SectionProjects.vue";
+import SectionContact from "@/components/Section/SectionContact.vue";
 
 let welcome = ref(true)
 setTimeout(() => {
@@ -37,6 +38,7 @@ watch(isOpenMobileMenu, (isOpen) => {
       <SectionHero/>
       <SectionAbout v-scrollanimation/>
       <SectionProjects v-scrollanimation/>
+      <SectionContact v-scrollanimation/>
     </main>
   </div>
 </template>
@@ -58,7 +60,6 @@ watch(isOpenMobileMenu, (isOpen) => {
 
 .main {
   min-height: 100vh;
-  max-height: 100%;
   padding: 0px 150px;
 
   &.blur, &.blur > * {
