@@ -1,7 +1,7 @@
 <script setup>
 import {ref, watch} from 'vue'
 
-import NavBar from '@/components/NavBar.vue'
+import Header from '@/components/Header.vue'
 import WelcomeSpinner from '@/components/WelcomeSpinner.vue'
 import SocialMedia from "@/components/Side/SideSocial.vue";
 import Email from "@/components/Side/SideEmail.vue";
@@ -9,6 +9,7 @@ import SectionHero from "@/components/Section/SectionHero.vue";
 import SectionAbout from "@/components/Section/SectionAbout.vue";
 import SectionProjects from "@/components/Section/SectionProjects.vue";
 import SectionContact from "@/components/Section/SectionContact.vue";
+import Footer from "@/components/Footer.vue";
 
 let welcome = ref(true)
 setTimeout(() => {
@@ -25,7 +26,7 @@ watch(isOpenMobileMenu, (isOpen) => {
 <template>
   <WelcomeSpinner v-if="welcome"/>
   <div v-else>
-    <NavBar
+    <Header
         :is-open-mobile-menu="isOpenMobileMenu"
         @update-is-open-mobile-menu="isOpenMobileMenu = $event"
     />
@@ -40,6 +41,7 @@ watch(isOpenMobileMenu, (isOpen) => {
       <SectionProjects v-scrollanimation/>
       <SectionContact v-scrollanimation/>
     </main>
+    <Footer/>
   </div>
 </template>
 
